@@ -4,4 +4,11 @@
     <option name="show" value="ASK" />
     <option name="description" value="" />
   </component>
+  <component name="StyledComponentsInjections">
+    <option name="prefixes">
+      <array>
+        <option value="" />
+      </array>
+    </option>
+  </component>
 </project>
