@@ -22,6 +22,13 @@ const Select = styled.select`
   font-size: 1.2rem;
 `;
 
+/**
+ * Hook useMonedas
+ * @param label
+ * @param initialState
+ * @param options
+ * @returns {[unknown,(function(): *),((value: unknown) => void)]}
+ */
 const useMonedas = (label, initialState, options) => {
 
   const [state, setState] = useState(initialState);

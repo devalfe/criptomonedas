@@ -5,6 +5,10 @@ import useCriptomoneda from "../hooks/useCriptomoneda";
 import {useEffect, useState} from "react";
 import Error from './Error';
 
+/**
+ * Styled component Botón
+ * @type {StyledComponent<{theme?: Theme, as?: React.ElementType}, JSX.IntrinsicElements["input"], {}>}
+ */
 const Boton = styled.input`
   margin-top: 20px;
   font-weight: bold;
@@ -22,6 +26,13 @@ const Boton = styled.input`
   }
 `;
 
+/**
+ * Component Formulario
+ * @param setMoneda - Tpo de moneda
+ * @param setCriptomoneda - Tipo de criptomoneda
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Formulario = ({setMoneda, setCriptomoneda}) => {
 
   const [listar, setListar] = useState([]);
@@ -40,6 +51,10 @@ const Formulario = ({setMoneda, setCriptomoneda}) => {
 
   useEffect(() => {
 
+    /**
+     * consulta api crypto
+     * @returns {Promise<void>}
+     */
     const consultarApi = async () => {
       const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD";
       const resultado = await axios.get(url);
@@ -48,11 +63,14 @@ const Formulario = ({setMoneda, setCriptomoneda}) => {
     consultarApi().then(r => r);
   }, []);
 
+  /**
+   * cotización de moneda
+   * @param e
+   */
   const cotizarMoneda = e => {
     e.preventDefault();
     if (monedas === '' || criptomonedas === '') {
       setError(true);
-
     } else {
       setError(false);
       setMoneda(monedas);
